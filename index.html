@@ -109,7 +109,7 @@
           <a class="blog-header-logo text-dark" href="#">Large</a>
         </div>
         <div class="col-4 d-flex justify-content-end align-items-center">
-          <a class="text-muted" href="#">
+          <a class="text-muted" href="#" onclick="removeIcon()">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
               stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
               viewBox="0 0 24 24" focusable="false">
@@ -220,7 +220,7 @@
           <p>
             This blog post shows a few different types of content that’s
             supported and styled with Bootstrap. Basic typography, images, and
-            code are all supported.
+            code are all supported para .
           </p>
           <hr />
           <p>
@@ -338,7 +338,7 @@
           </p>
 
           <p>
-            Cum sociis natoque penatibus et magnis dis parturient montes,
+            Para Cum sociis natoque penatibus et magnis dis parturient montes,
             nascetur ridiculus mus. Aenean lacinia bibendum nulla sed
             consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce
             dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
@@ -365,8 +365,8 @@
         <!-- /.blog-post -->
 
         <nav class="blog-pagination">
-          <a class="btn btn-outline-primary" href="#">Older</a>
-          <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
+          <a class="btn btn-outline-primary disabled" href="#">Older</a>
+          <a class="btn btn-outline-secondary " href="#" tabindex="-1" aria-disabled="true">Newer</a>
         </nav>
       </div>
       <!-- /.blog-main -->
@@ -451,6 +451,163 @@
 
     }
     // addLink()
+    const changeTittleColor = function () {
+      const h1 = document.querySelector('h1')
+      h1.style.color = 'blue'
+
+    }
+
+    changeTittleColor()
+
+
+    const changeBackGround = function () {
+      const jumbotronBack = document.querySelector('.jumbotron ')
+      // console.log(jumbotronBack);
+      jumbotronBack.setAttribute('style', '!important')
+      jumbotronBack.style.backgroundColor = 'red'
+    }
+
+    // changeBackGround()
+
+    const elseWehre = function () {
+
+      const ol = document.querySelectorAll('.list-unstyled')
+      if (ol) {
+        ol[1].remove()
+      }
+
+    }
+    elseWehre()
+
+    // Write a function to change the column size for heading in jumbotron
+
+    const jumbotronCol = function () {
+      const classCol = document.querySelector('.jumbotron > div');
+      classCol.classList.add('col-md-12')
+
+      // console.log(classCol.classList);
+
+    }
+
+    // jumbotronCol()
+
+    // EX16) Write a function to remove the "Search" magnifying glass icon
+
+    const removeIcon = function () {
+
+      const icon = document.querySelector("header div.row div:nth-child(3) > a > svg ")
+      icon.remove()
+      // console.log(icon);
+
+
+    }
+    // removeIcon()
+
+    // EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post
+
+    const blogPost = function () {
+
+      let postPara = document.querySelectorAll('.blog-post p:nth-child(3) ')
+
+      // console.log(postPara);
+      for (let index = 0; index < postPara.length; index++) {
+        let element = postPara[index];
+
+
+        // console.log(element );
+        // let paraText = element.innerText;
+        // console.log(paraText.length);
+
+        // console.log(paraText.slice(0, 150));
+
+        const p = element.innerText = element.innerText.substring(50)
+
+        console.log(element.innerText.length);
+        console.log(p);
+
+        // + `...`
+
+        // console.log();
+
+        // console.log(para50);
+
+      }
+
+
+      // postPara.forEach((para) => {
+
+      //   const paraText = para.textContent;
+      //   // console.log(paraText);
+      //   const para50 = paraText.slice(0, 150)
+
+      //   // console.log(para50);
+
+      // })
+      // console.log(postPara);
+
+    }
+
+    blogPost()
+
+
+    // EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title)
+
+
+
+    const button = document.querySelectorAll('.blog-pagination > a ')[1];
+
+
+
+
+
+
+    const buttonAddPost = function (event) {
+      event.preventDefault()
+
+      console.log('aaaa');
+
+      const blogMain = document.querySelector('.blog-pagination')
+
+      // console.log(blogMain);
+      const html = `
+        <div class="blog-post">
+          <h2 class="blog-post-title">Another new feature</h2>
+
+          <p>
+            Para Cum sociis natoque penatibus et magnis dis parturient montes,
+            nascetur ridiculus mus. Aenean lacinia bibendum nulla sed
+            consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce
+            dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+            ut fermentum massa justo sit amet risus.
+            </p>
+
+            </div>
+
+            `
+
+      blogMain.insertAdjacentHTML('beforebegin', html)
+
+    }
+
+    button.addEventListener('click', buttonAddPost)
+    // buttonAddPost()
+
+
+    const button1 = document.querySelectorAll('.blog-pagination > a ')[0];
+    console.log(button1);
+
+    button1.classList.remove('disabled')
+    const delateElement = function (e) {
+      e.preventDefault()
+
+      const blogMain = document.querySelector('.blog-post')
+
+      blogMain.remove()
+    }
+
+    button1.addEventListener('click', delateElement)
+
+    // EX20) Write an alert with the name of the author every time the user hover with the mouse over an author name
   </script>
 </body>
 
